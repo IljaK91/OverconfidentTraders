@@ -178,7 +178,7 @@ end
     Quadrature.
 """
 function mb(βᵢⱼ, βᵢ, β, par::Pars; bpar::BPars = CstrBPar(βᵢⱼ, βᵢ, β, par))
-    n              = setn(par.type)
+    n              = 5
     points, weight = qnwnorm([n,n],[par.aₜ, par.εₜ],[par.σ²ₐ, par.σ²ᵤ])
     a              = points[:,1]
     ϵ              = points[:,2]
