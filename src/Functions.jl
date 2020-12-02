@@ -212,10 +212,14 @@ function TradeProbDiff(a, z; par::Pars, bpar::BPars)
 end
 
 function TradeProbTermGrowth(a, z, par::Pars, bpar::BPars)
+    @unpack_Pars par
+    @unpack_BPars bpar
     -√βᵢⱼ*(Ωᵢⱼ_p*aₜ + Ωᵢⱼ_x*z + Ωᵢⱼ_z*(z - εₜ/√βᵢ) + 1/(2*wᵢⱼ_x)*(σ²ᵢ - σ²ᵢⱼ) - a)
 end
 
 function TradeProbTermDiffGrowth(a, z, par::Pars, bpar::BPars)
+    @unpack_Pars par
+    @unpack_BPars bpar
     postᵢ          = wᵢ_p*aₜ + wᵢ_x*z + wᵢ_z*(z - εₜ/√βᵢ) + 1/2*σ²ᵢ
     wi_wijx_diff   = -(1/√βᵢⱼ - 1/(2*βᵢⱼ^(3/2))*σ²ᵢⱼ^-1)*postᵢ
     wij_wijx_diff  = -(σ²ₐ^-1*aₜ + βᵢ*σ²ᵤ^-1*(z - εₜ/√βᵢ) + 1/2)/(2*βᵢⱼ^(3/2))
