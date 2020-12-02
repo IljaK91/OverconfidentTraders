@@ -13,5 +13,4 @@ include("Types.jl")
 
 # Include Functions
 include("Functions.jl")
-include("Trading.jl")
 end # module
