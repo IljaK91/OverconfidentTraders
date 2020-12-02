@@ -182,9 +182,9 @@ function mb(βᵢⱼ, βᵢ, β, par::Pars; bpar::BPars = CstrBPar(βᵢⱼ, β�
     points, weight = qnwnorm([n,n],[par.aₜ, par.εₜ],[par.σ²ₐ, par.σ²ᵤ])
     a              = points[:,1]
     ϵ              = points[:,2]
-    z              = θ + ϵ/√βᵢ
-    probdiff       = TradeProbDiff.(θ, z, par = par, bpar = bpar)
-    prof           = profit.(θ, z, par = par, bpar = bpar)
+    z              = a + ϵ/√βᵢ
+    probdiff       = TradeProbDiff.(a, z, par = par, bpar = bpar)
+    prof           = profit.(a, z, par = par, bpar = bpar)
     bounds         = 2
 
     return sum(bounds.*probdiff.*weight.*prof)
